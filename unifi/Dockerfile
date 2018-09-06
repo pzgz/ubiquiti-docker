@@ -34,7 +34,7 @@ RUN echo "debconf debconf/frontend select Noninteractive" | debconf-set-selectio
     dpkg -i /tmp/unifi.deb || /bin/true && apt-get -yf --force-yes install && \
     crontab -l | { cat; echo "0 2 * * * mongo --port 27117 < /bin/mongo_prune_js.js"; } | crontab - && \
     /etc/init.d/unifi start && /etc/init.d/unifi stop && \ 
-    dpkg --purge curl && \
+#    dpkg --purge curl && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     rm -rf /var/lib/unifi/* /usr/lib/unifi/{data.,logs.,run.}* 
 
