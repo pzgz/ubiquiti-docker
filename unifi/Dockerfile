@@ -5,8 +5,8 @@ MAINTAINER Chad Tindel "chad@tindel.net"
 #ARG UNIFI_VERSION
 #ARG UNIFI_DEB_URL
 # Use ENV instead ARG for automate building in dockhub
-ENV UNIFI_VERSION 5.7.20
-ENV UNIFI_DEB_URL https://dl.ubnt.com/unifi/${UNIFI_VERSION}-4f3333649b/unifi_sysvinit_all.deb
+ENV UNIFI_VERSION 5.8.28
+ENV UNIFI_DEB_URL https://dl.ubnt.com/unifi/${UNIFI_VERSION}/unifi_sysvinit_all.deb
 
 # We'll run the mongo prune script every day at 2am to minimize
 #  DB Stats to last 14 days.  See crontab addition above
