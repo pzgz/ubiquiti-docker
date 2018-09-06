@@ -1,4 +1,4 @@
-FROM phusion/baseimage:0.9.22
+FROM phusion/baseimage:0.11
 MAINTAINER Chad Tindel "chad@tindel.net"
 
 # Must be passed in at build time with --build-arg
