@@ -1,6 +1,6 @@
 NAME=ctindel/unifi-controller
-VERSION=5.7.20
-UNIFI_DEB_URL=http://dl.ubnt.com/unifi/$(VERSION)-4f3333649b/unifi_sysvinit_all.deb
+VERSION=5.8.28
+UNIFI_DEB_URL=http://dl.ubnt.com/unifi/$(VERSION)/unifi_sysvinit_all.deb
 
 .PHONY: all build test tag_latest release
 
