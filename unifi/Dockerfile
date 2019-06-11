@@ -38,9 +38,8 @@ RUN echo "debconf debconf/frontend select Noninteractive" | debconf-set-selectio
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     rm -rf /var/lib/unifi/* /usr/lib/unifi/{data.,logs.,run.}* 
 
-# No reason to expose the MongoDB port 27117 to the outside for most people
-EXPOSE 8080 8443 8843 8880 3478 6789
-#EXPOSE 27117
+# https://help.ubnt.com/hc/en-us/articles/218506997-UniFi-Ports-Used
+EXPOSE 3478/udp 8080/tcp 8443/tcp 8880/tcp 8843/tcp 6789/tcp
 
 ENV SHELL /bin/bash
 

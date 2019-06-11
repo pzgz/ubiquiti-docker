@@ -4,6 +4,14 @@
 
 rm -f /var/run/unifi/unifi.pid
 
+echo "Starting Unifi Controller.."
+
+# Tell the Unifi controller to talk to the external MongoDB container.
+echo "db.mongo.local=false" >> /var/lib/unifi/system.properties
+echo "db.mongo.uri=mongodb\://mongo\:27017/unifi" >> /var/lib/unifi/system.properties
+echo "statdb.mongo.uri=mongodb\://mongo\:27017/unifi_stat" >> /var/lib/unifi/system.properties
+echo "unifi.db.name=unifi" >> /var/lib/unifi/system.properties
+
 /usr/bin/jsvc \
  -nodetach \
  -debug \
@@ -15,5 +23,8 @@ rm -f /var/run/unifi/unifi.pid
  -Dunifi.logdir=/var/log/unifi \
  -Dunifi.rundir=/var/run/unifi \
  -Xmx1024M \
+ -Djava.awt.headless=true \
  -Dfile.encoding=UTF-8 \
+ -outfile SYSLOG \
+ -errfile SYSLOG \
  com.ubnt.ace.Launcher start
